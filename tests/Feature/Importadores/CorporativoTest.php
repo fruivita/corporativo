@@ -8,9 +8,9 @@
 use FruiVita\Corporativo\Exceptions\FileNotReadableException;
 use FruiVita\Corporativo\Exceptions\UnsupportedFileTypeException;
 use FruiVita\Corporativo\Facades\Corporativo;
-use FruiVita\Corporativo\Models\Lotacao;
-use FruiVita\Corporativo\Models\FuncaoConfianca;
 use FruiVita\Corporativo\Models\Cargo;
+use FruiVita\Corporativo\Models\FuncaoConfianca;
+use FruiVita\Corporativo\Models\Lotacao;
 use FruiVita\Corporativo\Models\Usuario;
 use Illuminate\Support\Facades\Log;
 

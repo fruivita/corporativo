@@ -5,9 +5,9 @@
  * @see https://laravel.com/docs/9.x/mocking
  */
 
-use FruiVita\Corporativo\Importadores\ImportadorLotacao;
-use FruiVita\Corporativo\Importadores\ImportadorFuncaoConfianca;
 use FruiVita\Corporativo\Importadores\ImportadorCargo;
+use FruiVita\Corporativo\Importadores\ImportadorFuncaoConfianca;
+use FruiVita\Corporativo\Importadores\ImportadorLotacao;
 use FruiVita\Corporativo\Importadores\ImportadorUsuario;
 use FruiVita\Corporativo\Models\Usuario;
 use Illuminate\Support\Facades\Log;
