@@ -94,6 +94,8 @@ jobs:
 
       - name: Execute tests without coverage
         run: |
+          echo ${{ github.event_name }}
+          echo ${{ github.event_name != 'pull_request' }}
           php --version
           ./vendor/bin/pest --colors=always --stop-on-failure
         if: (matrix.os == 'ubuntu-latest' && matrix.php == '8.1') == false
