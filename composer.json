@@ -1,6 +1,6 @@
 {
     "name": "fruivita/corporativo",
-    "description": "Importador de Estrutura Corporativa em formato XML para aplicações Laravel",
+    "description": "Importador de Estrutura Corporativa em formato de arquivo XML para aplicações Laravel",
     "license": "MIT",
     "type": "library",
     "keywords": [
