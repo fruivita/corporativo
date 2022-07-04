@@ -86,6 +86,8 @@ jobs:
 
       - name: Execute tests with coverage
         run: |
+          echo ${{ github.event_name }}
+          echo ${{ github.event_name != 'pull_request' }}
           php --version
           ./vendor/bin/pest --coverage --colors=always --stop-on-failure
         if: matrix.os == 'ubuntu-latest' && matrix.php == '8.1'
@@ -102,4 +104,4 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CORPORATIVO_CC_TEST_REPORTER_ID }}
         with:
           debug: true
-        if: (matrix.os == 'ubuntu-latest' && matrix.php == '8.1' && ${{ github.event_name != 'pull_request' }}) == true
+        if: ${{ github.event_name != 'pull_request' }}
