@@ -1,3 +1,3 @@
 # Security Policy
 
-If you discover any security related issues, please email fruivita.code@gmail.com instead of using the issue tracker.
+Se você descobriu alguma falha de segurança, por favor envie email para fruivita.code@gmail.com em vez de utilizar um issue.
