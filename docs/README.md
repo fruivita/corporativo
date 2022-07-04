@@ -1,25 +1,25 @@
 # Importador de Estrutura Corporativa para aplicações Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/fruivita/corporate?logo=packagist)](https://packagist.org/packages/fruivita/corporate)
-[![GitHub Release Date](https://img.shields.io/github/release-date/fruivita/corporate?logo=github)](/../../releases)
-[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/fruivita/corporate/1.x?logo=github)](/../../commits/1.x)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fruivita/corporate/Unit%20and%20Feature%20tests/1.x?label=tests&logo=github)](/../../actions/workflows/tests.yml?query=branch%3A1.x)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/98e8f7e0704865225131/test_coverage)](https://codeclimate.com/github/fruivita/corporate/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/98e8f7e0704865225131/maintainability)](https://codeclimate.com/github/fruivita/corporate/maintainability)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/fruivita/corporate/Static%20Analysis/1.x?label=code%20style&logo=github)](/../../actions/workflows/static.yml?query=branch%3A1.x)
-[![GitHub issues](https://img.shields.io/github/issues/fruivita/corporate?logo=github)](/../../issues)
-![GitHub repo size](https://img.shields.io/github/repo-size/fruivita/corporate?logo=github)
-[![Packagist Total Downloads](https://img.shields.io/packagist/dt/fruivita/corporate?logo=packagist)](https://packagist.org/packages/fruivita/corporate)
-[![GitHub](https://img.shields.io/github/license/fruivita/corporate?logo=github)](../LICENSE.md)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/fruivita/corporativo?logo=packagist)](https://packagist.org/packages/fruivita/corporativo)
+[![GitHub Release Date](https://img.shields.io/github/release-date/fruivita/corporativo?logo=github)](/../../releases)
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/fruivita/corporativo/main?logo=github)](/../../commits/main)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fruivita/corporativo/Unit%20and%20Feature%20tests/main?label=tests&logo=github)](/../../actions/workflows/tests.yml?query=branch%3Amain)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/c8eb8bcecaba6ecf5528/test_coverage)](https://codeclimate.com/github/fruivita/corporativo/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c8eb8bcecaba6ecf5528/maintainability)](https://codeclimate.com/github/fruivita/corporativo/maintainability)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/fruivita/corporativo/Static%20Analysis/main?label=code%20style&logo=github)](/../../actions/workflows/static.yml?query=branch%3Amain)
+[![GitHub issues](https://img.shields.io/github/issues/fruivita/corporativo?logo=github)](/../../issues)
+![GitHub repo size](https://img.shields.io/github/repo-size/fruivita/corporativo?logo=github)
+[![Packagist Total Downloads](https://img.shields.io/packagist/dt/fruivita/corporativo?logo=packagist)](https://packagist.org/packages/fruivita/corporativo)
+[![GitHub](https://img.shields.io/github/license/fruivita/corporativo?logo=github)](../LICENSE.md)
 
 Importa a **Estrutura Corporativa** em formato **XML** para aplicações **[Laravel](https://laravel.com/docs)**.
 
 Este package foi planejado de acordo com as necessidades da Justiça Federal do Espírito Santo. Contudo, ele pode ser utilizado em outros órgãos e projetos observados os termos previstos no [licenciamento](#license).
 
 ```php
-use FruiVita\Corporativo\Facades\Corporate;
+use FruiVita\Corporativo\Facades\Corporativo;
 
-Corporate::import($file_path);
+Corporativo::importar($arquivo);
 ```
 
 &nbsp;
@@ -89,25 +89,25 @@ Corporate::import($file_path);
 1. Instalar via **[composer](https://getcomposer.org/)**:
 
     ```bash
-    composer require fruivita/corporate
+    composer require fruivita/corporativo
     ```
 
 2. Publicar as migrations necessárias
 
     ```bash
-    php artisan vendor:publish --provider='FruiVita\Corporativo\CorporateServiceProvider' --tag='migrations'
+    php artisan vendor:publish --provider='FruiVita\Corporativo\CorporativoServiceProvider' --tag='migrations'
     ```
 
 3. Opcionalmente publicar as configurações
 
     ```bash
-    php artisan vendor:publish --provider='FruiVita\Corporativo\CorporateServiceProvider' --tag='config'
+    php artisan vendor:publish --provider='FruiVita\Corporativo\CorporativoServiceProvider' --tag='config'
     ```
 
 4. Opcionalmente publicar as traduções
 
     ```bash
-    php artisan vendor:publish --provider='FruiVita\Corporativo\CorporateServiceProvider' --tag='lang'
+    php artisan vendor:publish --provider='FruiVita\Corporativo\CorporativoServiceProvider' --tag='lang'
     ```
 
     As strings disponíveis para tradução são as que seguem. Altere-as de acordo com a necessidade.
@@ -121,10 +121,6 @@ Corporate::import($file_path);
         "Validação falhou": "Validação falhou"
     }
     ```
-
-    >Este package já possui traduções para **pt-br** e **en**.
-
-    &nbsp;
 
 ⬆️ [Voltar](#table-of-contents)
 
@@ -180,32 +176,32 @@ O arquivo com a **Estrutura Corporativa** deve ser oferecido a este package em f
 
 &nbsp;
 
-Corporate expõe o seguinte método para realizar a importação:
+Esse package expõe o seguinte método para realizar a importação:
 
 &nbsp;
 
-✏️ **import**
+✏️ **importar**
 
 ```php
-use FruiVita\Corporativo\Facades\Corporate;
+use FruiVita\Corporativo\Facades\Corporativo;
 
 /**
- * @param string $file_path full path do arquivo XML
+ * @param string $arquivo full path do arquivo XML
  * 
  * @throws \FruiVita\Corporativo\Exceptions\FileNotReadableException
  * @throws \FruiVita\Corporativo\Exceptions\UnsupportedFileTypeException
  *
  * @return void
  */
-Corporate::import($file_path);
+Corporativo::importar($arquivo);
 ```
 
 &nbsp;
 
 🚨 **Exceptions**:
 
-- **import** lança **\FruiVita\Corporativo\Exceptions\FileNotReadableException** caso não tenha permissão de leitura no arquivo ou ele não seja encontrado
-- **import** lança **\FruiVita\Corporativo\Exceptions\UnsupportedFileTypeException** caso o arquivo não seja um arquivo **XML**
+- **importar** lança **\FruiVita\Corporativo\Exceptions\FileNotReadableException** caso não tenha permissão de leitura no arquivo ou ele não seja encontrado
+- **importar** lança **\FruiVita\Corporativo\Exceptions\UnsupportedFileTypeException** caso o arquivo não seja um arquivo **XML**
 
 ⬆️ [Voltar](#table-of-contents)
 
@@ -261,9 +257,9 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
 | Version | PHP     | Release    | End of Life |
 |---------|---------|------------|-------------|
-| 1.0     | ^8.0    | 07-04-2022 | dd-mm-yyyy  |
+| 1.0     | ^8.0    | 04-07-2022 | dd-mm-yyyy  |
 
-🐛 Encontrou um bug?!?! Abra um **[issue](/../../issues/new?assignees=fcno&labels=bug%2Ctriage&template=bug_report.yml&title=%5BA+concise+title+for+the+bug%5D)**.
+🐛 Encontrou um bug?!?! Abra um **[issue](/../../issues/new?assignees=fcno&labels=bug%2Ctriage&template=bug_report.yml&title=%5BT%C3%ADtulo+conciso+do+bug%5D)**.
 
 ⬆️ [Voltar](#table-of-contents)
 
@@ -271,7 +267,7 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
 ## Roadmap
 
-> ✨ Alguma ideia nova?!?! Inicie **[uma discussão](https://github.com/orgs/fruivita/discussions/new?category=ideas&title=[Corporate])**.
+> ✨ Alguma ideia nova?!?! Inicie **[uma discussão](https://github.com/orgs/fruivita/discussions/new?category=ideas&title=[Corporativo])**.
 
 A lista a seguir contém as necessidades de melhorias identificadas e aprovadas que serão implementadas na primeira janela de oportunidade.
 

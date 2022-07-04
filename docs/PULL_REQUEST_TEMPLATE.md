@@ -1,53 +1,52 @@
-# Proposed changes (mandatory)
+# Proposta de mudança (obrigatório)
 
-Describe the big picture of your changes here to communicate to the maintainers why we should accept this pull request. If it fixes a bug or resolves a feature request, be sure to link to that issue.
+Descreva, de maneira geral, as mudanças propostas e porque este pull request deve ser aceito.
+Se ele corrigir um bug ou implementar uma feature requisitada, inclua o link do issue.
 
-1. What is the current behavior? (if appropriate)
+1. Qual é o atual comportamento? (se apropriado)
 
-    Fixes Issue Number: N/A
+    > Descreva o comportamento que será alterado.
 
-2. What is the new behavior? (if appropriate)
+2. Qual é o novo comportamento? (se apropriado)
 
-    - Something
+    > Descreva o novo comportamento.
 
-    - Else
+## Tipos de Pull Request (obrigatório)
 
-## Pull Request Types (mandatory)
+> *Quais tipos de mudança o seu código introduz? Marque um **X** nas caixas aplicáveis*
 
-> *What types of changes does your code introduce? Put an x in the boxes that apply*
+- [] Doc update (non-breaking change que corrige erros de digitação ou melhora a legibilidade do código)
 
-- [] Doc update (non-breaking change which fixes typos or improve readability)
+- [] Bug fix (non-breaking change que corrige um issue)
 
-- [] Bug fix (non-breaking change which fixes an issue)
+- [] New feature (non-breaking change que adiciona uma nova funcionalidade)
 
-- [] New feature (non-breaking change which adds functionality)
+- [] Breaking change (corrige ou implementa nova funcionalidade incompatível com as versões anteriores)
 
-- [] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [] Outra (por favor, descreva):
 
-- [] Other (please describe):
+## Antes de submeter um pull request, por favor tenha certeza de seguir os itens abaixo (obrigatório)
 
-## Before you submit a pull request, please make sure you have to following (mandatory)
+> *Marque um **X** em todas as caixas aplicáveis. Se não tiver certeza sobre alguma, não hesite em perguntar. Afinal, estamos aqui para ajudar!*
 
-> *Go over all the following points, and put an **x** in all the boxes that apply. If you're unsure about any of these, don't hesitate to ask. We're here to help!*
+- [] Meu código segue o padrão de codificação deste projeto.
 
-- [] My code follows the code style of this project.
+- [] Comentei meu código, especialmente nos trechos de difícil compreensão.
 
-- [] I have commented my code, particularly in hard-to-understand areas.
+- [] Fiz as mudanças correspondentes na documentação.
 
-- [] I have made corresponding changes to the documentation.
+- [] Li o documento **[CONTRIBUTING](CONTRIBUTING.md)**.
 
-- [] I have read the **[CONTRIBUTING](CONTRIBUTING.md)** document.
+- [] Adicionei testes que provam que a correção ou a feature funcionam.
 
-- [] I have added tests that prove my fix is effective or that my feature works.
+- [] Todas os testes e o lint do código então compliance.
 
-- [] All new and existing tests and lint passed.
+## Logs relevantes, erros, etc (se apropriado)
 
-## Any relevant logs, error output, etc (if appropriate)
+## Screenshots (se apropriado)
 
-## Screenshots (if appropriate)
+## Outras considerações (se apropriado)
 
-## Further comments (if appropriate)
-
-> If this is a relatively large or complex change, kick off the [discussion](https://github.com/orgs/fruivita/discussions/new?category=ideas&title=[Corporate]) by explaining why you chose the solution you did and what alternatives you considered, etc...
+> Se este pull request for relativamente grande ou se tratar de alteração complexa, inicie uma [discussão](https://github.com/orgs/fruivita/discussions/new?category=ideas&title=[Corporativo]) explicando porque você escolheu essa solução e quais alternativas você considerou, etc...
 
 💔Thank you!
