@@ -87,9 +87,9 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github.event_name) }}
         run: |
-        echo "${{ GITHUB_CONTEXT }}"
-        echo github.event.workflow_run.event != 'pull_request'
-        echo github.event.workflow_run.event
+          echo "$GITHUB_CONTEXT"
+          echo github.event.workflow_run.event != 'pull_request'
+          echo github.event.workflow_run.event
 
       - name: Execute tests with coverage
         run: ./vendor/bin/pest --coverage --colors=always --stop-on-failure
