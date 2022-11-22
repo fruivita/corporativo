@@ -66,8 +66,7 @@ abstract class ImportadorBase implements IImportavel
     /**
      * Define o caminho do arquivo que será importado.
      *
-     * @param string $arquivo caminho completo do arquivo
-     *
+     * @param  string  $arquivo caminho completo do arquivo
      * @return static
      */
     private function setPathArquivo(string $arquivo)
@@ -105,8 +104,7 @@ abstract class ImportadorBase implements IImportavel
      *     'nome' => 'foo',
      * ]
      *
-     * @param \XMLReader $no nó de onde serão extraído os valores
-     *
+     * @param  \XMLReader  $no nó de onde serão extraído os valores
      * @return array<string, string> array associativo
      */
     abstract protected function extrairDadosDoNo(\XMLReader $no);
@@ -114,8 +112,7 @@ abstract class ImportadorBase implements IImportavel
     /**
      * Salva os itens validados.
      *
-     * @param \Illuminate\Support\Collection $validados
-     *
+     * @param  \Illuminate\Support\Collection  $validados
      * @return void
      */
     abstract protected function salvar(Collection $validados);
@@ -198,8 +195,7 @@ abstract class ImportadorBase implements IImportavel
      *
      * Caso a validação falhe, retorna null e registra em log as falhas.
      *
-     * @param array<string, string> $dados assoc array
-     *
+     * @param  array<string, string>  $dados assoc array
      * @return array<string, string>|null assoc array
      */
     private function validaELogaErro(array $dados)
@@ -236,10 +232,9 @@ abstract class ImportadorBase implements IImportavel
      * Exception for informada para se produzir o stack trace, ela DEVERÁ estar
      * na chave de nome 'exception'.
      *
-     * @param string               $level   nível do log
-     * @param string|\Stringable   $message sobre o ocorrido
-     * @param array<string, mixed> $context dados de contexto
-     *
+     * @param  string  $level   nível do log
+     * @param  string|\Stringable  $message sobre o ocorrido
+     * @param  array<string, mixed>  $context dados de contexto
      * @return void
      *
      * @see https://www.php-fig.org/psr/psr-3/

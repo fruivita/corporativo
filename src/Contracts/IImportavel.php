@@ -13,13 +13,12 @@ interface IImportavel
      * 3. Lotação
      * 4. Usuário (Pessoa)
      *
-     * @param string $arquivo caminho completo para o arquivo XML que será
+     * @param  string  $arquivo caminho completo para o arquivo XML que será
      *                        importado
+     * @return void
      *
      * @throws \FruiVita\Corporativo\Exceptions\FileNotReadableException
      * @throws \FruiVita\Corporativo\Exceptions\UnsupportedFileTypeException
-     *
-     * @return void
      */
     public function importar(string $arquivo);
 }

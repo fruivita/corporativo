@@ -3,7 +3,7 @@
  * @see https://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc.
  */
 
-return <<<XML
+return <<<'XML'
 <?xml version='1.0' encoding='UTF-8'?>
 <base>
     <cargos>

@@ -36,8 +36,8 @@ class Corporativo implements IImportavel
      */
     public function importar(string $arquivo)
     {
-        throw_if(! $this->podeSerLido($arquivo), FileNotReadableException::class);
-        throw_if(! $this->mimeTypePermitido($arquivo), UnsupportedFileTypeException::class);
+        throw_if(!$this->podeSerLido($arquivo), FileNotReadableException::class);
+        throw_if(!$this->mimeTypePermitido($arquivo), UnsupportedFileTypeException::class);
 
         $this
             ->setPathArquivo($arquivo)
@@ -49,8 +49,7 @@ class Corporativo implements IImportavel
     /**
      * Verifica se o arquivo informado existe e pode ser lido.
      *
-     * @param string $arquivo caminho completo para o arquivo
-     *
+     * @param  string  $arquivo caminho completo para o arquivo
      * @return bool
      */
     private function podeSerLido(string $arquivo)
@@ -65,8 +64,7 @@ class Corporativo implements IImportavel
     /**
      * Verifica se o mime type do arquivo é permitido.
      *
-     * @param string $arquivo caminho completo
-     *
+     * @param  string  $arquivo caminho completo
      * @return bool
      */
     private function mimeTypePermitido(string $arquivo)
@@ -80,8 +78,7 @@ class Corporativo implements IImportavel
     /**
      * Define o caminho completo do arquivo que será importado.
      *
-     * @param string $arquivo caminho completo
-     *
+     * @param  string  $arquivo caminho completo
      * @return static
      */
     private function setPathArquivo(string $arquivo)
