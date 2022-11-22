@@ -12,14 +12,13 @@
 
 name: Qualidade de código
 
-on: ['workflow_dispatch', 'push', 'pull_request']
+on: ["workflow_dispatch", "push", "pull_request"]
 
 concurrency:
   group: qualidade-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-
   phpstan:
     runs-on: ubuntu-latest
 
@@ -32,7 +31,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: "8.1"
           tools: composer:v2
           coverage: none
 
@@ -42,10 +41,10 @@ jobs:
       - name: Run PHPStan
         run: vendor/bin/phpstan analyse --ansi --memory-limit 1G --error-format=github --debug
 
-  php-cs-fixer:
+  laravel-pint:
     runs-on: ubuntu-latest
 
-    name: PHP Coding Standards Fixer
+    name: PINT - Padrão de código com Laravel Pint
 
     steps:
       - name: Checkout
@@ -53,13 +52,11 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
-      - name: Run PHP CS Fixer
-        uses: docker://oskarstark/php-cs-fixer-ga
-        with:
-          args: -v --config=.php-cs-fixer.dist.php --allow-risky=yes
+      - name: Run Laravel PINT
+        run: vendor/bin/pint
 
       - name: Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'style: padronização de código com php-cs-fixer'
+          commit_message: "style: força padrão de código com pint"
           branch: ${{ github.head_ref }}
