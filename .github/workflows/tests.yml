@@ -62,7 +62,7 @@ jobs:
           extensions: bcmath, ctype, curl, dom, fileinfo, filter, json, libxml, mbstring, openssl, pcre, pdo, pdo_mysql, phar, tokenizer, xml, xmlreader, xmlwriter
           tools: composer:v2
           coverage: xdebug
-        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.1'
+        if: ${{ matrix.os == 'ubuntu-latest' && matrix.php == '8.1' }}
 
       - name: Setup PHP without coverage
         uses: shivammathur/setup-php@v2
@@ -92,7 +92,7 @@ jobs:
 
       - name: Execute tests with coverage
         run: ./vendor/bin/pest --coverage --colors=always --stop-on-failure
-        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.1'
+        if: ${{ matrix.os == 'ubuntu-latest' && matrix.php == '8.1' }}
 
       - name: Execute tests without coverage
         run: ./vendor/bin/pest --colors=always --stop-on-failure
