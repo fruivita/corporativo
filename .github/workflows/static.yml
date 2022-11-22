@@ -39,7 +39,7 @@ jobs:
         run: composer update --prefer-stable --no-interaction --no-progress
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse --ansi --memory-limit 1G --error-format=github --debug
+        run: ./vendor/bin/phpstan analyse --ansi --memory-limit 1G --error-format=github --debug
 
   laravel-pint:
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Run Laravel PINT
-        run: vendor/bin/pint
+        run: ./vendor/bin/pint
 
       - name: Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4
