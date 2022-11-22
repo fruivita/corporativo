@@ -40,9 +40,9 @@ Before submitting a pull request:
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **[Symfony Coding Standard](https://symfony.com/doc/current/contributing/code/standards.html)** - We use the package [PHP Coding Standards Fixer (PHP CS Fixer)](https://github.com/FriendsOfPHP/PHP-CS-Fixer) to apply the conventions.
+- **[Laravel Coding Standard](https://laravel.com/docs/9.x/pint)** - We use the package [Laravel pint](https://laravel.com/docs/9.x/pint) to apply the conventions.
 
-  - The configuration used can be checked [here](../.php-cs-fixer.dist.php)
+  - The configuration used can be checked [here](../pint.json)
 
 - **[PHPStan - PHP Static Analysis Tool](https://phpstan.org/user-guide/getting-started)** - We use the package [phpstan/phpstan](https://github.com/phpstan/phpstan) associated with [nunomaduro/larastan](https://github.com/nunomaduro/larastan) to execute PHP static code analysis.
 
@@ -76,8 +76,9 @@ If the project maintainer has any additional requirements, you will find them li
     - log
     - model
     - npm
-    - policies
+    - policy
     - route
+    - service
     - validation
     - view
 

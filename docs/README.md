@@ -164,12 +164,14 @@ O arquivo com a **Estrutura Corporativa** deve ser oferecido a este package em f
         <!-- Pessoas:
             nome: string, obrigatório e tamanho entre 1 e 255
             sigla: string, obrigatório, usuário do LDAP Server e tamanho máximo de 20
+            matrícula: string, opcional e tamanho máximo de 20
+            email: string e opcional
             cargo: integer, obrigatório, id de um dos cargos informados
             lotacao: integer, obrigatório, id de uma das lotações informadas
             funcaoConfianca: integer, opcional, id de uma das funções confiança informadas
             -->
-        <pessoa id="1" nome="Pessoa 1" sigla="Sigla 1" cargo="1" lotacao="2" funcaoConfianca=""/>
-        <pessoa id="2" nome="Pessoa 2" sigla="Sigla 2" cargo="1" lotacao="2" funcaoConfianca="2"/>
+        <pessoa id="1" nome="Pessoa 1" sigla="Sigla 1" matricula="11111" email="foo@bar.com" cargo="1" lotacao="2" funcaoConfianca=""/>
+        <pessoa id="2" nome="Pessoa 2" sigla="Sigla 2" matricula="22222" email="bar@baz.com" cargo="1" lotacao="2" funcaoConfianca="2"/>
     </pessoas>
 </base>
 ```
@@ -257,7 +259,8 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 
 | Version | PHP     | Release    | End of Life |
 |---------|---------|------------|-------------|
-| 1.0     | ^8.0    | 04-07-2022 | dd-mm-yyyy  |
+| 1.0     | ^8.0    | 04-07-2022 | 22-05-2023  |
+| 2.0     | ^8.0    | 22-11-2022 | dd-mm-yyyy  |
 
 🐛 Encontrou um bug?!?! Abra um **[issue](/../../issues/new?assignees=fcno&labels=bug%2Ctriage&template=bug_report.yml&title=%5BT%C3%ADtulo+conciso+do+bug%5D)**.
 
@@ -299,9 +302,9 @@ A lista a seguir contém as necessidades de melhorias identificadas e aprovadas 
 
   - [illuminate/support](https://github.com/illuminate/support)
 
-- ❤️ [Orchestra Platform](https://github.com/orchestral) pelo package [orchestral/testbench](https://github.com/orchestral/testbench)
+  - [laravel/pint](https://github.com/laravel/pint)
 
-- ❤️ [FriendsOfPHP](https://github.com/FriendsOfPHP) pelo package [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
+- ❤️ [Orchestra Platform](https://github.com/orchestral) pelo package [orchestral/testbench](https://github.com/orchestral/testbench)
 
 - ❤️ [Nuno Maduro](https://github.com/nunomaduro) pelo package [nunomaduro/larastan](https://github.com/nunomaduro/larastan)
 
