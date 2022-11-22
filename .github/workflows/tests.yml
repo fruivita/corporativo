@@ -87,7 +87,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github.event_name) }}
         run: |
-        echo "$GITHUB_CONTEXT"
+        echo "${{ GITHUB_CONTEXT }}"
         echo github.event.workflow_run.event != 'pull_request'
         echo github.event.workflow_run.event
 
