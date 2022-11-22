@@ -15,7 +15,7 @@
 
 name: Testes unitários e funcionais
 
-on: ['workflow_dispatch', 'push', 'pull_request']
+on: ["workflow_dispatch", "push", "pull_request"]
 
 concurrency:
   group: testes-${{ github.event.pull_request.number || github.ref }}
@@ -34,12 +34,11 @@ jobs:
         stability: [prefer-stable]
         include:
           - laravel: 9.*
-            testbench: ^7.4
+            testbench: ^7.13
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -86,6 +85,7 @@ jobs:
 
       - name: Execute tests with coverage
         run: |
+          echo ${{ github }}
           echo ${{ github.event_name }}
           echo ${{ github.event_name == 'push' }}
           php --version
@@ -94,6 +94,7 @@ jobs:
 
       - name: Execute tests without coverage
         run: |
+          echo ${{ github }}
           echo ${{ github.event_name }}
           echo ${{ github.event_name == 'push' }}
           php --version
