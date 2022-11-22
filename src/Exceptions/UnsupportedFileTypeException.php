@@ -2,14 +2,12 @@
 
 namespace FruiVita\Corporativo\Exceptions;
 
-use Exception;
-
 /**
  * Tipo de arquivo não suportado.
  *
  * @see https://laravel.com/docs/9.x/errors
  */
-class UnsupportedFileTypeException extends Exception
+class UnsupportedFileTypeException extends \Exception
 {
     public function __construct()
     {
