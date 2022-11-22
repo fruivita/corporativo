@@ -84,21 +84,11 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-stable --no-interaction --no-progress
 
       - name: Execute tests with coverage
-        run: |
-          echo ${{ github }}
-          echo ${{ github.event_name }}
-          echo ${{ github.event_name == 'push' }}
-          php --version
-          ./vendor/bin/pest --coverage --colors=always --stop-on-failure
+        run: ./vendor/bin/pest --coverage --colors=always --stop-on-failure
         if: matrix.os == 'ubuntu-latest' && matrix.php == '8.1'
 
       - name: Execute tests without coverage
-        run: |
-          echo ${{ github }}
-          echo ${{ github.event_name }}
-          echo ${{ github.event_name == 'push' }}
-          php --version
-          ./vendor/bin/pest --colors=always --stop-on-failure
+        run: ./vendor/bin/pest --colors=always --stop-on-failure
         if: (matrix.os == 'ubuntu-latest' && matrix.php == '8.1') == false
 
       - name: Upload coverage to Code Climate
@@ -108,3 +98,8 @@ jobs:
         with:
           debug: true
         if: ${{ github.event_name == 'push' }}
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
