@@ -97,7 +97,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CORPORATIVO_CC_TEST_REPORTER_ID }}
         with:
           debug: true
-        if: ${{ github.event_name == 'push' }}
+        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.1'
 
       - name: Dump GitHub context
         env:
