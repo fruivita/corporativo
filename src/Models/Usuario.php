@@ -29,7 +29,7 @@ class Usuario extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = ['username', 'nome', 'lotacao_id', 'cargo_id', 'funcao_confianca_id'];
+    protected $fillable = ['username', 'nome', 'email', 'matricula', 'lotacao_id', 'cargo_id', 'funcao_confianca_id'];
 
     /**
      * Relacionamento usuário (N:1) lotação.

@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Schema;
  * @see https://dev.mysql.com/doc/refman/8.0/en/integer-types.html
  * @see https://docs.microsoft.com/pt-br/windows/win32/adschema/a-samaccountname?redirectedfrom=MSDN
  */
-return new class extends Migration {
+
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -22,8 +24,10 @@ return new class extends Migration {
             $table->unsignedBigInteger('lotacao_id')->nullable();
             $table->unsignedBigInteger('cargo_id')->nullable();
             $table->unsignedBigInteger('funcao_confianca_id')->nullable();
-            $table->string('nome', 255)->nullable();
+            $table->string('matricula', 20)->unique()->nullable();
             $table->string('username', 20)->unique();
+            $table->string('email', 255)->unique()->nullable();
+            $table->string('nome', 255)->nullable();
             $table->timestamps();
 
             $table

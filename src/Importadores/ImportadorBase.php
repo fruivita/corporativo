@@ -87,8 +87,8 @@ abstract class ImportadorBase implements IImportavel
         $maximo = config('corporativo.max_upsert');
 
         $this->max_upsert = (is_int($maximo) && $maximo >= 1)
-                                ? $maximo
-                                : 500;
+            ? $maximo
+            : 500;
 
         return $this;
     }

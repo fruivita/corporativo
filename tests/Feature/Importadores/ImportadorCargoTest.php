@@ -16,8 +16,8 @@ test('cria os logs para cada cargo inválido', function () {
     ImportadorCargo::make()->importar($this->arquivo);
 
     Log::shouldHaveReceived('log')
-    ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
-    ->times(6);
+        ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
+        ->times(6);
 
     expect(Cargo::count())->toBe(3);
 });
@@ -36,5 +36,5 @@ test('importa os cargos do arquivo corporativo', function () {
     $cargos = Cargo::get();
 
     expect($cargos)->toHaveCount(3)
-    ->and($cargos->pluck('nome'))->toMatchArray(['Cargo 1', 'Cargo 2', 'Cargo 3']);
+        ->and($cargos->pluck('nome'))->toMatchArray(['Cargo 1', 'Cargo 2', 'Cargo 3']);
 });

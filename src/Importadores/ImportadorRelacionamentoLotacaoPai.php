@@ -27,10 +27,10 @@ final class ImportadorRelacionamentoLotacaoPai extends ImportadorBase
      * {@inheritdoc}
      */
     protected $rules = [
-        'id' => ['required', 'integer', 'gte:1'],
-        'nome' => ['required', 'string',  'max:255'],
-        'sigla' => ['required', 'string',  'max:50'],
-        'lotacao_pai' => ['nullable', 'integer', 'exists:lotacoes,id'],
+        'id' => ['bail', 'required', 'integer', 'gte:1'],
+        'nome' => ['bail', 'required', 'string',  'max:255'],
+        'sigla' => ['bail', 'required', 'string',  'max:50'],
+        'lotacao_pai' => ['bail', 'nullable', 'integer', 'exists:lotacoes,id'],
     ];
 
     /**

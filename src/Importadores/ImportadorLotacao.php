@@ -11,9 +11,9 @@ final class ImportadorLotacao extends ImportadorBase
      * {@inheritdoc}
      */
     protected $rules = [
-        'id' => ['required', 'integer', 'gte:1'],
-        'nome' => ['required', 'string',  'max:255'],
-        'sigla' => ['required', 'string',  'max:50'],
+        'id' => ['bail', 'required', 'integer', 'gte:1'],
+        'nome' => ['bail', 'required', 'string',  'max:255'],
+        'sigla' => ['bail', 'required', 'string',  'max:50'],
     ];
 
     /**

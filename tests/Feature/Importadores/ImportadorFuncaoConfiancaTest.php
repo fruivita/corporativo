@@ -16,8 +16,8 @@ test('cria os logs para cada função de confiaça inválida', function () {
     ImportadorFuncaoConfianca::make()->importar($this->arquivo);
 
     Log::shouldHaveReceived('log')
-    ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
-    ->times(6);
+        ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
+        ->times(6);
 
     expect(FuncaoConfianca::count())->toBe(3);
 });
@@ -36,5 +36,5 @@ test('importa as funções de confiança do arquivo corporativo', function () {
     $funcoes = FuncaoConfianca::get();
 
     expect($funcoes)->toHaveCount(3)
-    ->and($funcoes->pluck('nome'))->toMatchArray(['Função 1', 'Função 2', 'Função 3']);
+        ->and($funcoes->pluck('nome'))->toMatchArray(['Função 1', 'Função 2', 'Função 3']);
 });

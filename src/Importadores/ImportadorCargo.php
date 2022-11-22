@@ -11,8 +11,8 @@ final class ImportadorCargo extends ImportadorBase
      * {@inheritdoc}
      */
     protected $rules = [
-        'id' => ['required', 'integer', 'gte:1'],
-        'nome' => ['required', 'string',  'max:255'],
+        'id' => ['bail', 'required', 'integer', 'gte:1'],
+        'nome' => ['bail', 'required', 'string',  'max:255'],
     ];
 
     /**

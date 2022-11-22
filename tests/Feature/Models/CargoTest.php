@@ -28,12 +28,6 @@ test('lança exception ao criar cargos com campos inválidos', function ($campo,
 ]);
 
 // Caminho feliz
-test('cria múltiplos cargos', function () {
-    Cargo::factory(30)->create();
-
-    expect(Cargo::count())->toBe(30);
-});
-
 test('campos em seu tamanho máximo são aceitos', function () {
     Cargo::factory()->create(['nome' => Str::random(255)]);
 
@@ -48,5 +42,5 @@ test('um cargo possui muitos usuários', function () {
     $cargo = Cargo::with('usuarios')->first();
 
     expect($cargo->usuarios->random())->toBeInstanceOf(Usuario::class)
-    ->and($cargo->usuarios)->toHaveCount(3);
+        ->and($cargo->usuarios)->toHaveCount(3);
 });

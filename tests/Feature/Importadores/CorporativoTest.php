@@ -42,7 +42,7 @@ test('nas configurações, se o max upsert for inválido, usa o valor default. T
         = 6   // Para cada cargo inválido
         + 6   // Para cada funcao de confiança inválida
         + 18  // Para cada lotacao inválida
-        + 13; // Para cada usuario/pessoa inválida
+        + 17; // Para cada usuario/pessoa inválida
 
     Log::spy();
 
@@ -57,13 +57,13 @@ test('nas configurações, se o max upsert for inválido, usa o valor default. T
         fn ($level, $message) => $level === 'info' && $message === __('Fim da importação da estrutura corporativa')
     );
     Log::shouldHaveReceived('log')
-    ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
-    ->times($warnings);
+        ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
+        ->times($warnings);
 
     expect(Cargo::count())->toBe(3)
-    ->and(FuncaoConfianca::count())->toBe(3)
-    ->and(Lotacao::count())->toBe(5)
-    ->and(Usuario::count())->toBe(5);
+        ->and(FuncaoConfianca::count())->toBe(3)
+        ->and(Lotacao::count())->toBe(5)
+        ->and(Usuario::count())->toBe(5);
 });
 
 test('importa o arquivo corporativo e cria todos os logs', function () {
@@ -71,24 +71,24 @@ test('importa o arquivo corporativo e cria todos os logs', function () {
         = 6   // Para cada cargo inválido
         + 6   // Para cada funcao de confiança inválida
         + 18  // Para cada lotacao inválida
-        + 13; // Para cada usuario/pessoa inválida
+        + 17; // Para cada usuario/pessoa inválida
 
     Log::spy();
 
     Corporativo::importar($this->arquivo);
 
     Log::shouldHaveReceived('log')
-    ->withArgs(fn ($level, $message) => $level === 'info' && $message === __('Início da importação da estrutura corporativa'))
-    ->once();
+        ->withArgs(fn ($level, $message) => $level === 'info' && $message === __('Início da importação da estrutura corporativa'))
+        ->once();
     Log::shouldHaveReceived('log')
-    ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
-    ->times($warnings);
+        ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
+        ->times($warnings);
     Log::shouldHaveReceived('log')
-    ->withArgs(fn ($level, $message) => $level === 'info' && $message === __('Fim da importação da estrutura corporativa'))
-    ->once();
+        ->withArgs(fn ($level, $message) => $level === 'info' && $message === __('Fim da importação da estrutura corporativa'))
+        ->once();
 
     expect(Cargo::count())->toBe(3)
-    ->and(FuncaoConfianca::count())->toBe(3)
-    ->and(Lotacao::count())->toBe(5)
-    ->and(Usuario::count())->toBe(5);
+        ->and(FuncaoConfianca::count())->toBe(3)
+        ->and(Lotacao::count())->toBe(5)
+        ->and(Usuario::count())->toBe(5);
 });

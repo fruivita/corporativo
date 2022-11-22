@@ -36,12 +36,6 @@ test('lança exception ao tentar definir relacionamento inválido, isto é, com 
 });
 
 // Caminho feliz
-test('cria múltiplas lotações', function () {
-    Lotacao::factory()->count(30)->create();
-
-    expect(Lotacao::count())->toBe(30);
-});
-
 test('campos em seu tamanho máximo são aceitos', function ($campo, $tamanho) {
     Lotacao::factory()->create([$campo => Str::random($tamanho)]);
 
@@ -66,16 +60,16 @@ test('uma lotação pai possui muitos lotações filhos e uma lotação filha po
     Lotacao::factory($qtd_filhos)->create(['lotacao_pai' => $id_pai]);
 
     $lotacao_pai = Lotacao::with(['lotacoesFilhas', 'lotacaoPai'])
-            ->find($id_pai);
+        ->find($id_pai);
     $lotacao_filha = Lotacao::with(['lotacoesFilhas', 'lotacaoPai'])
-                ->where('lotacao_pai', '=', $id_pai)
-                ->get()
-                ->random();
+        ->where('lotacao_pai', '=', $id_pai)
+        ->get()
+        ->random();
 
     expect($lotacao_pai->lotacoesFilhas)->toHaveCount($qtd_filhos)
-    ->and($lotacao_pai->lotacaoPai)->toBeNull()
-    ->and($lotacao_filha->lotacaoPai->id)->toBe($lotacao_pai->id)
-    ->and($lotacao_filha->lotacoesFilhas)->toHaveCount(0);
+        ->and($lotacao_pai->lotacaoPai)->toBeNull()
+        ->and($lotacao_filha->lotacaoPai->id)->toBe($lotacao_pai->id)
+        ->and($lotacao_filha->lotacoesFilhas)->toHaveCount(0);
 });
 
 test('uma lotação possui muitos usuários', function () {
@@ -86,5 +80,5 @@ test('uma lotação possui muitos usuários', function () {
     $lotacao = Lotacao::with(['usuarios'])->first();
 
     expect($lotacao->usuarios->random())->toBeInstanceOf(Usuario::class)
-    ->and($lotacao->usuarios)->toHaveCount(3);
+        ->and($lotacao->usuarios)->toHaveCount(3);
 });

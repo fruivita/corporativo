@@ -23,8 +23,8 @@ test('cria os logs para cada usuário inválido', function () {
     ImportadorUsuario::make()->importar($this->arquivo);
 
     Log::shouldHaveReceived('log')
-    ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
-    ->times(13);
+        ->withArgs(fn ($level, $message) => $level === 'warning' && $message === __('Validação falhou'))
+        ->times(17);
 
     expect(Usuario::count())->toBe(5);
 });
@@ -46,5 +46,5 @@ test('importa os usuários do arquivo corporativo', function () {
     $usuarios = Usuario::get();
 
     expect($usuarios)->toHaveCount(5)
-    ->and($usuarios->pluck('nome'))->toMatchArray(['Pessoa 1', 'Pessoa 2', 'Pessoa 3', 'Pessoa 4', 'Pessoa 5']);
+        ->and($usuarios->pluck('nome'))->toMatchArray(['Pessoa 1', 'Pessoa 2', 'Pessoa 3', 'Pessoa 4', 'Pessoa 5']);
 });

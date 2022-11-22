@@ -28,12 +28,6 @@ test('lança exception ao criar função de confiança com campos inválidos', f
 ]);
 
 // Caminho feliz
-test('cria múltiplas funções de confiança', function () {
-    FuncaoConfianca::factory(30)->create();
-
-    expect(FuncaoConfianca::count())->toBe(30);
-});
-
 test('campos em seu tamanho máximo são aceitos', function () {
     FuncaoConfianca::factory()->create(['nome' => Str::random(255)]);
 
@@ -48,5 +42,5 @@ test('uma função de confiança possui muitos usuários', function () {
     $funcao = FuncaoConfianca::with('usuarios')->first();
 
     expect($funcao->usuarios->random())->toBeInstanceOf(Usuario::class)
-    ->and($funcao->usuarios)->toHaveCount(3);
+        ->and($funcao->usuarios)->toHaveCount(3);
 });
