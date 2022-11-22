@@ -10,3 +10,7 @@ e o projeto é versionado com [Semantic Versioning](https://semver.org/spec/v2.0
 ## [v2.0.0](https://github.com/fruivita/corporativo/compare/1.x...v2.0.0) - 2022-11-22
 
 Adiciona os campos Matrícula e Email na importação do usuário.
+
+## [v1.0.0](https://github.com/fruivita/corporativo/compare/1.x...v1.0.0) - 2022-07-04
+
+Release inicial.
