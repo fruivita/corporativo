@@ -88,8 +88,8 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github.event_name) }}
         run: |
           echo "$GITHUB_CONTEXT"
-          echo github.event.workflow_run.event != 'pull_request'
-          echo github.event.workflow_run.event
+          echo ${{ github.event.workflow_run.event == 'push' }}
+          echo ${{ github.event.workflow_run.event }}
 
       - name: Execute tests with coverage
         run: ./vendor/bin/pest --coverage --colors=always --stop-on-failure
@@ -100,7 +100,7 @@ jobs:
         if: (matrix.os == 'ubuntu-latest' && matrix.php == '8.1') == false
 
       - name: Upload coverage to Code Climate
-        if: github.event.workflow_run.event != 'pull_request'
+        if: ${{ github.event.workflow_run.event == 'push' }}
         uses: paambaati/codeclimate-action@v3.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CORPORATIVO_CC_TEST_REPORTER_ID }}
