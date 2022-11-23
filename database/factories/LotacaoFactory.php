@@ -20,9 +20,9 @@ class LotacaoFactory extends Factory
     {
         return [
             'lotacao_pai' => null,
-            'id' => $this->faker->unique()->randomNumber(),
-            'nome' => $this->faker->company(),
-            'sigla' => $this->faker->word(),
+            'id' => fake()->unique()->randomNumber(),
+            'nome' => fake()->company(),
+            'sigla' => fake()->word(),
         ];
     }
 }

@@ -19,8 +19,8 @@ class CargoFactory extends Factory
     public function definition()
     {
         return [
-            'id' => $this->faker->unique()->randomNumber(),
-            'nome' => $this->faker->jobTitle(),
+            'id' => fake()->unique()->randomNumber(),
+            'nome' => fake()->jobTitle(),
         ];
     }
 }
