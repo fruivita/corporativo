@@ -23,10 +23,10 @@ class UsuarioFactory extends Factory
             'cargo_id' => null,
             'funcao_confianca_id' => null,
 
-            'matricula' => $this->faker->unique()->numerify('#####'),
-            'username' => $this->faker->unique()->word(),
-            'email' => $this->faker->unique()->email(),
-            'nome' => $this->faker->optional()->name(),
+            'matricula' => fake()->unique()->numerify('#####'),
+            'username' => fake()->unique()->word(),
+            'email' => fake()->unique()->email(),
+            'nome' => fake()->optional()->name(),
         ];
     }
 }
