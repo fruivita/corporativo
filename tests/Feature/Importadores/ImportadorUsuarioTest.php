@@ -139,3 +139,17 @@ test('emite evento LotacaoUsuarioAlterada se for identificada alteração na lot
         return true;
     });
 });
+
+
+test('concatena (prepend) a chave de configuração matrícula à matrícula do usuário importada do arquivo corporativo', function () {
+    config(['corporativo.matricula' => 'foo']);
+
+    ImportadorCargo::make()->importar($this->arquivo);
+    ImportadorFuncaoConfianca::make()->importar($this->arquivo);
+    ImportadorLotacao::make()->importar($this->arquivo);
+    ImportadorUsuario::make()->importar($this->arquivo);
+
+    $usuario = Usuario::firstWhere('email', 'p1@p1.com');
+
+    expect($usuario->matricula)->toBe('foo11111');
+});

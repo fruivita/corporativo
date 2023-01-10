@@ -54,7 +54,7 @@ final class ImportadorUsuario extends ImportadorBase
     protected function extrairDadosDoNo(\XMLReader $no)
     {
         return [
-            'matricula' => $no->getAttribute('matricula') ?: null,
+            'matricula' => $no->getAttribute('matricula') ? config('corporativo.matricula') . $no->getAttribute('matricula') : null,
             'email' => $no->getAttribute('email') ?: null,
             'nome' => $no->getAttribute('nome') ?: null,
             'lotacao_id' => $no->getAttribute('lotacao') ?: null,
