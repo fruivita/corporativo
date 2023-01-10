@@ -3,18 +3,19 @@
 namespace FruiVita\Corporativo;
 
 use FruiVita\Corporativo\Contracts\IImportavel;
+use FruiVita\Corporativo\Events\ImportacaoConcluida;
+use FruiVita\Corporativo\Events\ImportacaoIniciada;
 use FruiVita\Corporativo\Exceptions\FileNotReadableException;
 use FruiVita\Corporativo\Exceptions\UnsupportedFileTypeException;
 use FruiVita\Corporativo\Importadores\ImportadorCargo;
 use FruiVita\Corporativo\Importadores\ImportadorFuncaoConfianca;
 use FruiVita\Corporativo\Importadores\ImportadorLotacao;
 use FruiVita\Corporativo\Importadores\ImportadorUsuario;
-use FruiVita\Corporativo\Trait\Logavel;
-use Illuminate\Support\Facades\Log;
+use FruiVita\Corporativo\Trait\Eventos;
 
 class Corporativo implements IImportavel
 {
-    use Logavel;
+    use Eventos;
 
     /**
      * Caminho completo para o arquivo XML com a estrutura coporativa que será
@@ -95,15 +96,7 @@ class Corporativo implements IImportavel
      */
     private function tratativasIniciais()
     {
-        if ($this->registrarLog()) {
-            Log::log(
-                level: $this->level,
-                message: __('Início da importação da estrutura corporativa'),
-                context: [
-                    'arquivo' => $this->arquivo,
-                ]
-            );
-        }
+        ImportacaoIniciada::dispatchIf($this->emitirEventos(), $this->arquivo, now());
 
         return $this;
     }
@@ -130,15 +123,7 @@ class Corporativo implements IImportavel
      */
     private function tratativasFinais()
     {
-        if ($this->registrarLog()) {
-            Log::log(
-                level: $this->level,
-                message: __('Fim da importação da estrutura corporativa'),
-                context: [
-                    'arquivo' => $this->arquivo,
-                ]
-            );
-        }
+        ImportacaoConcluida::dispatchIf($this->emitirEventos(), $this->arquivo, now());
 
         return $this;
     }
