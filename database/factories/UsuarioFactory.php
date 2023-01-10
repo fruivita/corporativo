@@ -24,7 +24,6 @@ class UsuarioFactory extends Factory
             'funcao_confianca_id' => null,
 
             'matricula' => fake()->unique()->numerify('#####'),
-            'username' => fake()->unique()->word(),
             'email' => fake()->unique()->email(),
             'nome' => fake()->optional()->name(),
         ];
