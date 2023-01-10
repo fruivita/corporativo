@@ -12,13 +12,12 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Str;
 
 // Exceptions
-test('lança exception ao criar usuários duplicados, isto é, com matrícula, username ou email iguais', function ($campo) {
+test('lança exception ao criar usuários duplicados, isto é, com matrícula ou email iguais', function ($campo) {
     expect(
         fn () => Usuario::factory(2)->create([$campo => 'foo'])
     )->toThrow(QueryException::class, 'Duplicate entry');
 })->with([
     'matricula',
-    'username',
     'email',
 ]);
 
@@ -28,8 +27,7 @@ test('lança exception ao criar usuário com campos inválidos', function ($camp
     )->toThrow(QueryException::class, $mensagem);
 })->with([
     ['matricula', Str::random(21),  'Data too long for column'], // máximo 20 characters
-    ['username',  Str::random(21),  'Data too long for column'], // máximo 20 characters
-    ['username',  null,             'cannot be null'],           // obrigatório
+    ['matricula', null,             'cannot be null'],           // obrigatório
     ['email',     Str::random(256), 'Data too long for column'], // máximo 255 caracteres
     ['nome',      Str::random(256), 'Data too long for column'], // máximo 255 caracteres
 ]);
@@ -51,14 +49,12 @@ test('campos em seu tamanho máximo são aceitos', function ($campo, $tamanho) {
     expect(Usuario::count())->toBe(1);
 })->with([
     ['matricula', 20],
-    ['username', 20],
     ['email', 255],
     ['nome', 255],
 ]);
 
 test('campos opcionais estão definidos', function () {
     Usuario::factory()->create([
-        'matricula' => null,
         'email' => null,
         'nome' => null,
     ]);
