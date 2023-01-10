@@ -96,8 +96,9 @@ final class ImportadorUsuario extends ImportadorBase
     /**
      * Emite evento se houver mudança no cargo do usuário.
      *
-     * @param \FruiVita\Corporativo\Models\Usuario
+     * @param \FruiVita\Corporativo\Models\Usuario $usuario
      * @param int|null $cargo_novo id do cargo novo
+     * @return void
      */
     private function mudancaCargo(Usuario $usuario, int $cargo_novo = null)
     {
@@ -112,8 +113,9 @@ final class ImportadorUsuario extends ImportadorBase
     /**
      * Emite evento se houver mudança na função de confiança do usuário.
      *
-     * @param \FruiVita\Corporativo\Models\Usuario
+     * @param \FruiVita\Corporativo\Models\Usuario $usuario
      * @param int|null $funcao_nova id do funcao nova
+     * @return void
      */
     private function mudancaFuncao(Usuario $usuario, int $funcao_nova = null)
     {
@@ -128,8 +130,9 @@ final class ImportadorUsuario extends ImportadorBase
     /**
      * Emite evento se houver mudança na lotação do usuário.
      *
-     * @param \FruiVita\Corporativo\Models\Usuario
+     * @param \FruiVita\Corporativo\Models\Usuario $usuario
      * @param int|null $lotacao_nova id do lotacao nova
+     * @return void
      */
     private function mudancaLotacao(Usuario $usuario, int $lotacao_nova = null)
     {
