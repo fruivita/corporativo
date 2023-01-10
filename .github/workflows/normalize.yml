@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'composer.json'
+      - "composer.json"
 
 concurrency:
   group: normaliza-${{ github.event.pull_request.number || github.ref }}
@@ -43,5 +43,4 @@ jobs:
       - name: Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'style(composer): normaliza composer.json'
-          branch: ${{ github.head_ref }}
+          commit_message: "style(composer): normaliza composer.json"
