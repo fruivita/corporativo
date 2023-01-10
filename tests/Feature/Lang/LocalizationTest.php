@@ -8,7 +8,7 @@ use FruiVita\Corporativo\Exceptions\FileNotReadableException;
 use Illuminate\Support\Facades\App;
 
 // Caminho feliz
-test('exception with default message in Portuguese changing the locale', function () {
+test('exception com mensagem padrão em português mudando o locale', function () {
     App::setLocale('pt-br');
 
     $exception = new FileNotReadableException();
