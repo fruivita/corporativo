@@ -147,7 +147,7 @@ abstract class ImportadorBase implements IImportavel
      * - Ler o arquivo;
      * - Extrai os dados do nó XML de interesse;
      * - Validar os dados extraídos e, se necessário, registrar em log as
-     * inconsistencias;
+     * inconsistências;
      * - Acionar o método responsável por efetivar a persistência.
      *
      * @return static
