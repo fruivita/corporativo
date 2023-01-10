@@ -2,28 +2,6 @@
 
 return [
     /*
-    |-------------------------------------------------------------------------
-    | Log Completo
-    |-------------------------------------------------------------------------
-    |
-    | Esse package gera log para 04 cenários:
-    | 1. Início da importação
-    | 2. Fim da importação
-    | 3. Falha na importação
-    | 4. Falhas de validação/inconsistência dos dados
-    |
-    | Se log_completo for true, todos os cenários acima serão registrados em
-    | log.
-    | Útil para monitorar se o processo de importação está funcionando como
-    | esperado.
-    | Se false, não registrará os cenários 1 e 2, mas continua registrando os
-    | demais.
-    |
-    */
-
-    'log_completo' => true,
-
-    /*
     | ------------------------------------------------------------------------
     | Max Upsert
     | ------------------------------------------------------------------------
@@ -34,4 +12,27 @@ return [
     |
     */
     'max_upsert' => 500,
+
+    /*
+    | ------------------------------------------------------------------------
+    | Padrão matrícula
+    | ------------------------------------------------------------------------
+    |
+    | Valor a ser, eventualmente, adicionado ao início da matrícula caso.
+    |
+    | necessário. Ex.: ES99999
+    |
+    */
+    'matricula' => '',
+
+    /*
+    | ------------------------------------------------------------------------
+    | Emitir eventos
+    | ------------------------------------------------------------------------
+    |
+    | Se o processo de importação deve emitir os eventos de início e fim da
+    | importação e de alteração da lotação, função ou cargo do usuário.
+    |
+    */
+    'eventos' => false,
 ];
