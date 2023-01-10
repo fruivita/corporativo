@@ -6,7 +6,7 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/fruivita/corporativo/tests.yml?branch=3.x)](/../../actions/workflows/tests.yml?query=branch%3A3.x)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c8eb8bcecaba6ecf5528/test_coverage)](https://codeclimate.com/github/fruivita/corporativo/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c8eb8bcecaba6ecf5528/maintainability)](https://codeclimate.com/github/fruivita/corporativo/maintainability)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/fruivita/corporativo/static.yml?branch=3.x)](/../../actions/workflows/static.yml?query=branch%3A3.x)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/fruivita/corporativo/static.yml?branch=3.x)](/../../actions/workflows/static.yml?query=branch%3A3.x)
 [![GitHub issues](https://img.shields.io/github/issues/fruivita/corporativo?logo=github)](/../../issues)
 ![GitHub repo size](https://img.shields.io/github/repo-size/fruivita/corporativo?logo=github)
 [![Packagist Total Downloads](https://img.shields.io/packagist/dt/fruivita/corporativo?logo=packagist)](https://packagist.org/packages/fruivita/corporativo)
