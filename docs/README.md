@@ -2,11 +2,11 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/fruivita/corporativo?logo=packagist)](https://packagist.org/packages/fruivita/corporativo)
 [![GitHub Release Date](https://img.shields.io/github/release-date/fruivita/corporativo?logo=github)](/../../releases)
-[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/fruivita/corporativo/main?logo=github)](/../../commits/main)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fruivita/corporativo/Testes%20unit%C3%A1rios%20e%20funcionais/main)](/../../actions/workflows/tests.yml?query=branch%3Amain)
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/fruivita/corporativo/3.x?logo=github)](/../../commits/3.x)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/fruivita/corporativo/Testes%20unit%C3%A1rios%20e%20funcionais/3.x)](/../../actions/workflows/tests.yml?query=branch%3A3.x)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c8eb8bcecaba6ecf5528/test_coverage)](https://codeclimate.com/github/fruivita/corporativo/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c8eb8bcecaba6ecf5528/maintainability)](https://codeclimate.com/github/fruivita/corporativo/maintainability)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/fruivita/corporativo/Qualidade%20de%20c%C3%B3digo/main)](/../../actions/workflows/static.yml?query=branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/fruivita/corporativo/Qualidade%20de%20c%C3%B3digo/3.x)](/../../actions/workflows/static.yml?query=branch%3A3.x)
 [![GitHub issues](https://img.shields.io/github/issues/fruivita/corporativo?logo=github)](/../../issues)
 ![GitHub repo size](https://img.shields.io/github/repo-size/fruivita/corporativo?logo=github)
 [![Packagist Total Downloads](https://img.shields.io/packagist/dt/fruivita/corporativo?logo=packagist)](https://packagist.org/packages/fruivita/corporativo)
@@ -36,25 +36,27 @@ Corporativo::importar($arquivo);
 
 4. [How it works](#how-it-works)
 
-5. [Testing and Continuous Integration](#testing-and-continuous-integration)
+5. [Events](#events)
 
-6. [Changelog](#changelog)
+6. [Testing and Continuous Integration](#testing-and-continuous-integration)
 
-7. [Contributing](#contributing)
+7. [Changelog](#changelog)
 
-8. [Code of conduct](#code-of-conduct)
+8. [Contributing](#contributing)
 
-9. [Security Vulnerabilities](#security-vulnerabilities)
+9. [Code of conduct](#code-of-conduct)
 
-10. [Support and Updates](#support-and-updates)
+10. [Security Vulnerabilities](#security-vulnerabilities)
 
-11. [Roadmap](#roadmap)
+11. [Support and Updates](#support-and-updates)
 
-12. [Credits](#credits)
+12. [Roadmap](#roadmap)
 
-13. [Thanks](#thanks)
+13. [Credits](#credits)
 
-14. [License](#license)
+14. [Thanks](#thanks)
+
+15. [License](#license)
 
 ---
 
@@ -114,8 +116,6 @@ Corporativo::importar($arquivo);
 
     ```json
     {
-        "Fim da importação da estrutura corporativa": "Fim da importação da estrutura corporativa",
-        "Início da importação da estrutura corporativa": "Início da importação da estrutura corporativa",
         "O arquivo informado não pôde ser lido": "O arquivo informado não pôde ser lido",
         "O arquivo precisa ser no formato [:attribute]": "O arquivo precisa ser no formato [:attribute]",
         "Validação falhou": "Validação falhou"
@@ -163,18 +163,19 @@ O arquivo com a **Estrutura Corporativa** deve ser oferecido a este package em f
     <pessoas>
         <!-- Pessoas:
             nome: string, obrigatório e tamanho entre 1 e 255
-            sigla: string, obrigatório, usuário do LDAP Server e tamanho máximo de 20
-            matrícula: string, opcional e tamanho máximo de 20
+            matrícula: string, obrigatório e tamanho máximo de 20
             email: string e opcional
             cargo: integer, obrigatório, id de um dos cargos informados
             lotacao: integer, obrigatório, id de uma das lotações informadas
-            funcaoConfianca: integer, opcional, id de uma das funções confiança informadas
+            funcaoConfianca: integer, opcional, id de uma das funções de confiança informadas
             -->
-        <pessoa id="1" nome="Pessoa 1" sigla="Sigla 1" matricula="11111" email="foo@bar.com" cargo="1" lotacao="2" funcaoConfianca=""/>
-        <pessoa id="2" nome="Pessoa 2" sigla="Sigla 2" matricula="22222" email="bar@baz.com" cargo="1" lotacao="2" funcaoConfianca="2"/>
+        <pessoa nome="Pessoa 1" matricula="11111" email="foo@bar.com" cargo="1" lotacao="2" funcaoConfianca=""/>
+        <pessoa nome="Pessoa 2" matricula="22222" email="bar@baz.com" cargo="1" lotacao="2" funcaoConfianca="2"/>
     </pessoas>
 </base>
 ```
+
+> Notar que a pessoa não possui ID (será analisada sua unicidade pela matrícula). Isso para permitir que outros usuários/pessoas possam ser cadastrados diretamente na aplicação.
 
 &nbsp;
 
@@ -204,6 +205,20 @@ Corporativo::importar($arquivo);
 
 - **importar** lança **\FruiVita\Corporativo\Exceptions\FileNotReadableException** caso não tenha permissão de leitura no arquivo ou ele não seja encontrado
 - **importar** lança **\FruiVita\Corporativo\Exceptions\UnsupportedFileTypeException** caso o arquivo não seja um arquivo **XML**
+
+⬆️ [Voltar](#table-of-contents)
+
+&nbsp;
+
+## Events
+
+Eventos emitidos durante o processo de importação:
+
+- **\FruiVita\Corporativo\Events\ImportacaoIniciada**
+- **\FruiVita\Corporativo\Events\ImportacaoConcluida**
+- **\FruiVita\Corporativo\Events\CargoUsuarioAlterado**
+- **\FruiVita\Corporativo\Events\FuncaoConfiancaUsuarioAlterada**
+- **\FruiVita\Corporativo\Events\LotacaoUsuarioAlterada**
 
 ⬆️ [Voltar](#table-of-contents)
 
@@ -260,7 +275,8 @@ A versão mais recente receberá suporte e atualizações sempre que houver nece
 | Version | PHP     | Release    | End of Life |
 |---------|---------|------------|-------------|
 | 1.0     | ^8.0    | 04-07-2022 | 22-05-2023  |
-| 2.0     | ^8.0    | 22-11-2022 | dd-mm-yyyy  |
+| 2.0     | ^8.0    | 22-11-2022 | 10-06-2023  |
+| 3.0     | ^8.0    | 10-01-2023 | dd-mm-yyyy  |
 
 🐛 Encontrou um bug?!?! Abra um **[issue](/../../issues/new?assignees=fcno&labels=bug%2Ctriage&template=bug_report.yml&title=%5BT%C3%ADtulo+conciso+do+bug%5D)**.
 
