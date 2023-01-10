@@ -140,7 +140,6 @@ test('emite evento LotacaoUsuarioAlterada se for identificada alteração na lot
     });
 });
 
-
 test('concatena (prepend) a chave de configuração matrícula à matrícula do usuário importada do arquivo corporativo', function () {
     config(['corporativo.matricula' => 'foo']);
 
